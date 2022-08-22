@@ -9,7 +9,7 @@ import { ListCategoriesController } from "../modules/cars/useCases/listCategorie
 const categoriesRoutes = Router();
 
 const upload = multer({
-    dest: "../../tmp",
+    dest: "./tmp",
 });
 
 const createCategorieController = new CreateCategoryController();
@@ -20,6 +20,6 @@ categoriesRoutes.post("/", createCategorieController.handle);
 
 categoriesRoutes.get("/", listCategoriesController.handle);
 
-categoriesRoutes.post("/import", importCategoryController.handle);
+categoriesRoutes.post("/import", upload.single("file"), importCategoryController.handle);
 
 export { categoriesRoutes };
