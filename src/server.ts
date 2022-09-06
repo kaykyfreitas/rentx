@@ -2,13 +2,13 @@ import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors"
 // import createConnection from './database';
 import './database'
-import './shared/container'
+import '@shared/container'
 
 import { router } from './routes';
 import swaggerUI from "swagger-ui-express"
 
 import swaggerFile from "./swagger.json"
-import { AppError } from './errors/AppError';
+import { AppError } from '@errors/AppError';
 
 
 const app = express();
