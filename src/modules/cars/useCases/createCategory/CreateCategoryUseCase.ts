@@ -1,7 +1,7 @@
 import { inject, injectable} from "tsyringe";
-import { AppError } from "../../../../errors/AppError";
 
-import { ICategories } from "../../repositories/ICategories";
+import { AppError } from "@errors/AppError";
+import { ICategories } from "@modules/cars/repositories/ICategories";
 
 interface IRequest {
     name: string;
