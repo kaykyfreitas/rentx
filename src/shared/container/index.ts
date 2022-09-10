@@ -7,8 +7,11 @@ import { ISpecifications } from "@modules/cars/repositories/ISpecifications";
 import { Categories } from "@modules/cars/infra/typeorm/repositories/Categories";
 import { Specifications } from "@modules/cars/infra/typeorm/repositories/Specifications";
 import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
+import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
+import { Cars } from "@modules/cars/infra/typeorm/repositories/Cars";
 
-// ICategories
+container.registerSingleton<ICarsRepository>("Cars", Cars);
+
 container.registerSingleton<ICategories>("Categories", Categories);
 
 container.registerSingleton<ISpecifications>("Specifications", Specifications);

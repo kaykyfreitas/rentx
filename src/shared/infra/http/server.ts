@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors"
-// import createConnection from './database';
-import '../typeorm'
+import createConnection from '../typeorm';
+// import '../typeorm'
 import '@shared/container'
 
 import { router } from '@shared/infra/http/routes';
@@ -13,7 +13,7 @@ import { AppError } from '@shared/errors/AppError';
 
 const app = express();
 
-// createConnection().then(() => console.log('connected to database'));
+createConnection().then(() => console.log('connected to database'));
 
 app.use(express.json());
 
