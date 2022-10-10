@@ -5,6 +5,7 @@ import { categoriesRoutes } from "@shared/infra/http/routes/categories.routes";
 import { specificationsRoutes } from "@shared/infra/http/routes/specifications.routes";
 import { authenticateRoutes } from "@shared/infra/http/routes/authenticate.routes";
 import { carsRoutes } from "./cars.routes";
+import { rentalRoutes } from "./rental.routes";
 
 const router = Router();
 
@@ -13,6 +14,8 @@ router.use(authenticateRoutes);
 router.use("/cars", carsRoutes);
 
 router.use("/users", usersRoutes);
+
+router.use("/rentals", rentalRoutes);
 
 router.use("/categories", categoriesRoutes);
 
