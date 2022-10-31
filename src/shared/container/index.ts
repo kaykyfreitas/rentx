@@ -15,6 +15,8 @@ import { IRentals } from "@modules/rentals/repositories/IRentals";
 import { Rentals } from "@modules/rentals/infra/typeorm/repositories/Rentals";
 
 import "@shared/container/providers"
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
+import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 
 container.registerSingleton<ICarsRepository>("Cars", Cars);
 
@@ -27,3 +29,5 @@ container.registerSingleton<IUsersRespository>("UsersRepository", UsersRepositor
 container.registerSingleton<ICarsImages>("CarsImages", CarsImages);
 
 container.registerSingleton<IRentals>("Rentals", Rentals);
+
+container.registerSingleton<IUsersTokensRepository>("UsersTokensRepository", UsersTokensRepository);

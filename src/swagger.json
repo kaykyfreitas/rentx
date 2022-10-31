@@ -14,12 +14,15 @@
                 "tags": ["Category"],
                 "summary": "Create a category",
                 "description": "Create a new category",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
                 "requestBody": {
                     "application/json": {
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "nmae": {
+                                "name": {
                                     "type": "string"
                                 },
                                 "description": {
@@ -119,6 +122,38 @@
                     }                    
                 }
             }
+        },
+        "/sessions": {
+            "post": {
+                "tags": ["Sessions"],
+                "summary": "Authentication user",
+                "description": "Authentication user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Email or password incorrect!"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -131,6 +166,15 @@
                 "description": {
                     "type": "string"
                 }
+            }
+        }
+    },
+    "components": {
+        "securitySchemas": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
