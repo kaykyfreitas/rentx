@@ -2,9 +2,9 @@ import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
-import { ListCategoriesController } from "../listCategories/ListCategoriesController";
 
 interface IRequest {
+
     name: string;
     description: string;
     daily_rate: number;
@@ -12,10 +12,11 @@ interface IRequest {
     fine_amount: number;
     brand: string;
     category_id: string;
+
 }
 
 @injectable()
-class CreateCarUseCase {
+export class CreateCarUseCase {
 
     constructor(
         @inject("Cars")
@@ -43,5 +44,3 @@ class CreateCarUseCase {
         return car;
     }
 }
-
-export { CreateCarUseCase };

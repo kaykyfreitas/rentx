@@ -1,6 +1,5 @@
 import { inject, injectable } from "tsyringe";
-
-import { IUsersRespository } from "@modules/accounts/repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { IStorageProvider } from "@shared/container/providers/StorageProvider/IStorageProvider";
 
 interface IRequest {
@@ -9,11 +8,11 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateUserAvatarUseCase {
+export class UpdateUserAvatarUseCase {
 
     constructor(
         @inject("UsersRepository")
-        private usersRepository: IUsersRespository,
+        private usersRepository: IUsersRepository,
         @inject("StorageProvider")
         private storageProvider: IStorageProvider
     ) {}
@@ -33,5 +32,3 @@ class UpdateUserAvatarUseCase {
     }
 
 }
-
-export { UpdateUserAvatarUseCase }

@@ -1,10 +1,9 @@
-import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { IRentals } from "@modules/rentals/repositories/IRentals";
-import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
-import { AppError } from "@shared/errors/AppError";
-import dayjs from "dayjs";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "@shared/errors/AppError";
+import { IRentals } from "@modules/rentals/repositories/IRentals";
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
+import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 
 interface IRequest {
@@ -14,7 +13,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateRentalUseCase {
+export class CreateRentalUseCase {
 
     constructor(
         @inject("Rentals")
@@ -60,6 +59,5 @@ class CreateRentalUseCase {
 
 }
 
-export { CreateRentalUseCase }
 
      

@@ -1,10 +1,10 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 import { Category } from "./Category";
 import { Specification } from "./Specification";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity("cars")
-class Car {
+export class Car {
 
     @PrimaryColumn()
     id: string;
@@ -56,5 +56,3 @@ class Car {
     }
 
 }
-
-export { Car };

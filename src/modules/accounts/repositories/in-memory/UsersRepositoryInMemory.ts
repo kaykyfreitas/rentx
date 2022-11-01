@@ -1,9 +1,8 @@
-import { User } from "@modules/accounts/infra/typeorm/entities/User";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-
 import { IUsersRespository } from "../IUsersRepository";
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
 
-class UsersRepositoryInMemory implements IUsersRespository {
+export class UsersRepositoryInMemory implements IUsersRespository {
 
     users: User[] = [];
 
@@ -29,5 +28,3 @@ class UsersRepositoryInMemory implements IUsersRespository {
     }
     
 }
-
-export { UsersRepositoryInMemory }

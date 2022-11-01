@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { Request, Response } from "express";
 import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
 
-class ListAvailableCarsController {
+export class ListAvailableCarsController {
     async handle(request: Request, response: Response): Promise<Response>{
         const { brand, name, category_id } = request.query;
 
@@ -16,5 +16,3 @@ class ListAvailableCarsController {
         return response.json(cars);
     }
 }
-
-export { ListAvailableCarsController }

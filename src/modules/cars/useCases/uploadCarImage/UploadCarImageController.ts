@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { Request, Response } from "express";
 import { UploadCarImageUseCase } from "./UploadCarImageUseCase";
 
 interface IFiles {
@@ -7,7 +7,7 @@ interface IFiles {
 
 }
 
-class UploadCarImageController {
+export class UploadCarImageController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
         const images = request.files as IFiles[];
@@ -24,5 +24,3 @@ class UploadCarImageController {
         return response.status(201).send();
     }
 }
-
-export { UploadCarImageController }

@@ -1,8 +1,8 @@
-import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
-import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentals } from "../IRentals";
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
+import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
 
-class RentalsRepositoryInMemory implements IRentals {
+export class RentalsRepositoryInMemory implements IRentals {
 
     rentals: Rental[] = [];
 
@@ -38,5 +38,3 @@ class RentalsRepositoryInMemory implements IRentals {
     }
 
 }
-
-export { RentalsRepositoryInMemory }

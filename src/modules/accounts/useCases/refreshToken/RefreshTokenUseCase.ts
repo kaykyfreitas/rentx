@@ -1,10 +1,9 @@
-import auth from "@config/auth"
-import { UserTokens } from "@modules/accounts/infra/typeorm/entities/UserTokens";
-import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository"
-import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
+import auth from "@config/auth";
+import { sign, verify } from "jsonwebtoken";
+import { inject, injectable } from "tsyringe";
 import { AppError } from "@shared/errors/AppError";
-import { sign, verify } from "jsonwebtoken"
-import { inject, injectable } from "tsyringe"
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository"
 
 interface IPayload {
     sub: string;
@@ -17,7 +16,7 @@ interface ITokenResponse {
 }
 
 @injectable()
-class RefreshTokenUseCase {
+export class RefreshTokenUseCase {
 
     constructor(
         @inject("UsersTokensRepository")
@@ -62,5 +61,3 @@ class RefreshTokenUseCase {
     }
 
 }
-
-export { RefreshTokenUseCase }

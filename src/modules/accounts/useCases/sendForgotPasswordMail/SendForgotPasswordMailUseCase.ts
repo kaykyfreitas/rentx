@@ -1,18 +1,18 @@
+import { resolve } from "path";
 import { v4 as uuidV4 } from "uuid";
-import { IUsersRespository } from "@modules/accounts/repositories/IUsersRepository";
-import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
-import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "@shared/errors/AppError";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { IMailProvider } from "@shared/container/providers/MailProvider/IMailProvider";
-import { resolve } from "path";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 
 @injectable()
-class SendForgotPasswordMailUseCase {
+export class SendForgotPasswordMailUseCase {
 
     constructor(
         @inject("UsersRepository")
-        private usersRepository: IUsersRespository,
+        private usersRepository: IUsersRepository,
         @inject("UsersTokensRepository")
         private usersTokensRepository: IUsersTokensRepository,
         @inject("DayjsDateProvider")
@@ -55,5 +55,3 @@ class SendForgotPasswordMailUseCase {
     }
 
 }
-
-export { SendForgotPasswordMailUseCase }

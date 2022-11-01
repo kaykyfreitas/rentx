@@ -1,5 +1,4 @@
 import { inject, injectable} from "tsyringe";
-
 import { AppError } from "@shared/errors/AppError";
 import { ICategories } from "@modules/cars/repositories/ICategories";
 
@@ -9,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateCategoryUseCase {
+export class CreateCategoryUseCase {
 
     constructor( @inject("Categories") private repository: ICategories ) {}
 
@@ -25,4 +24,3 @@ class CreateCategoryUseCase {
     
 }
 
-export { CreateCategoryUseCase };

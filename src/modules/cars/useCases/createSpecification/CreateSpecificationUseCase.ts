@@ -1,5 +1,4 @@
 import { inject, injectable } from "tsyringe";
-
 import { AppError } from "@shared/errors/AppError";
 import { ISpecifications } from "@modules/cars/repositories/ISpecifications";
 
@@ -9,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateSpecificationUseCase {
+export class CreateSpecificationUseCase {
 
     constructor( @inject("Specifications") private repository: ISpecifications ) {}
  
@@ -24,5 +23,3 @@ class CreateSpecificationUseCase {
     }
 
 }
-
-export { CreateSpecificationUseCase }

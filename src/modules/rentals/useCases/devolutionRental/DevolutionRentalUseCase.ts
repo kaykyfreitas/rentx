@@ -1,9 +1,9 @@
-import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { IRentals } from "@modules/rentals/repositories/IRentals";
-import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
-import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "@shared/errors/AppError";
+import { IRentals } from "@modules/rentals/repositories/IRentals";
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
+import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
     id: string;
@@ -11,7 +11,7 @@ interface IRequest {
 }
 
 @injectable()
-class DevolutionRentalUseCase {
+export class DevolutionRentalUseCase {
 
     constructor(
         @inject("Rentals")
@@ -61,5 +61,3 @@ class DevolutionRentalUseCase {
     }
 
 }
-
-export { DevolutionRentalUseCase }

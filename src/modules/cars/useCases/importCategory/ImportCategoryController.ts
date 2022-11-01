@@ -1,10 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
-
+import { Request, Response } from "express";
 import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
 
-
-class ImportCategoryController {
+export class ImportCategoryController {
 
     async handle(request: Request, response: Response): Promise<Response> {
         const { file } = request;
@@ -17,5 +15,3 @@ class ImportCategoryController {
     }
 
 }
-
-export { ImportCategoryController }

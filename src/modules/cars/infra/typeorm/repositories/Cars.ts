@@ -1,9 +1,9 @@
+import { Car } from "../entities/Car";
+import { getRepository, Repository } from "typeorm";
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreatecarDTO";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { getRepository, Repository } from "typeorm";
-import { Car } from "../entities/Car";
 
-class Cars implements ICarsRepository {
+export class Cars implements ICarsRepository {
 
     private repository: Repository<Car>;
 
@@ -70,5 +70,3 @@ class Cars implements ICarsRepository {
     }
     
 }
-
-export { Cars }

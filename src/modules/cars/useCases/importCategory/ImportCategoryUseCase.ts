@@ -1,7 +1,6 @@
 import fs from "fs";
 import { parse } from "csv-parse"
 import { inject, injectable } from "tsyringe";
-
 import { ICategories } from "@modules/cars/repositories/ICategories";
 
 interface IImportCategory {
@@ -10,7 +9,7 @@ interface IImportCategory {
 }
 
 @injectable()
-class ImportCategoryUseCase {
+export class ImportCategoryUseCase {
 
     constructor( @inject("Categories") private repository: ICategories ) {}
 
@@ -62,4 +61,3 @@ class ImportCategoryUseCase {
 
 }
 
-export { ImportCategoryUseCase }

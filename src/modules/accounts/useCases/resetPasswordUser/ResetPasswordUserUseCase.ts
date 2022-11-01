@@ -1,9 +1,9 @@
-import { IUsersRespository } from "@modules/accounts/repositories/IUsersRepository";
-import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
-import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
-import { AppError } from "@shared/errors/AppError";
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "@shared/errors/AppError";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 
 interface IRequest {
     token: string;
@@ -11,7 +11,7 @@ interface IRequest {
 }
 
 @injectable()
-class ResetPasswordUserUseCase {
+export class ResetPasswordUserUseCase {
 
     constructor(
         @inject("UsersTokensRepository")
@@ -19,7 +19,7 @@ class ResetPasswordUserUseCase {
         @inject("DayjsDateProvider")
         private dateProvider: IDateProvider,
         @inject("UsersRepository")
-        private usersRepository: IUsersRespository
+        private usersRepository: IUsersRepository
     ) {}
 
     async execute({ token, password }: IRequest): Promise<void> {
@@ -43,5 +43,3 @@ class ResetPasswordUserUseCase {
     }
 
 }
-
-export { ResetPasswordUserUseCase }

@@ -1,6 +1,6 @@
+import { inject, injectable } from "tsyringe";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { inject, injectable } from "tsyringe";
 
 interface IRequest {
     category_id?: string;
@@ -9,7 +9,7 @@ interface IRequest {
 }
 
 @injectable()
-class ListAvailableCarsUseCase {
+export class ListAvailableCarsUseCase {
 
     constructor(
         @inject("Cars")
@@ -21,5 +21,3 @@ class ListAvailableCarsUseCase {
         return cars;
     }
 }
-
-export { ListAvailableCarsUseCase }

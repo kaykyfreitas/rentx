@@ -5,6 +5,7 @@ import { resolve } from "path";
 const tmpFolder = resolve(__dirname, "..", "..", "tmp");
 
 export default {
+
     tmpFolder,
 
     storage: multer.diskStorage({
@@ -16,4 +17,5 @@ export default {
             return callback(null, fileName);
         }
     })
+
 }

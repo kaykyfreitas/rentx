@@ -5,7 +5,7 @@ import uploadConfig from "@config/upload";
 import { ensureAdmin } from "../middleware/ensureAdmin";
 import { ensureAuthenticated } from "../middleware/ensureAuthenticated";
 import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
-import { ListAvailableCarsController } from "@modules/cars/useCases/listAvailableCars/ListAvailableCrasController";
+import { ListAvailableCarsController } from "@modules/cars/useCases/listAvailableCars/ListAvailableCarsController";
 import { CreateCarSpecificationController } from "@modules/cars/useCases/createCarSpecification/CreateCarSpecificationController";
 import { UploadCarImageController } from "@modules/cars/useCases/uploadCarImage/UploadCarImageController";
 import multer from "multer";

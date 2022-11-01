@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { Request, Response } from "express";
 import { CreateRentalUseCase } from "./CreateRentalUseCase";
 
-class CreateRentalController {
+export class CreateRentalController {
 
     async handle(request: Request,response: Response): Promise<Response> {
         const { id } = request.user;
@@ -20,5 +20,3 @@ class CreateRentalController {
     }
 
 }
-
-export { CreateRentalController }

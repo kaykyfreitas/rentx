@@ -1,9 +1,9 @@
-import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { IRentals } from "@modules/rentals/repositories/IRentals";
 import { inject, injectable } from "tsyringe";
+import { IRentals } from "@modules/rentals/repositories/IRentals";
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 
 @injectable()
-class ListRentalsByUserUseCase {
+export class ListRentalsByUserUseCase {
 
     constructor(
         @inject("Rentals")
@@ -17,5 +17,3 @@ class ListRentalsByUserUseCase {
 
     }
 }
-
-export { ListRentalsByUserUseCase }

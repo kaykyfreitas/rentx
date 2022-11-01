@@ -1,16 +1,15 @@
-import { hash } from "bcrypt"
+import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
-
 import { AppError } from "@shared/errors/AppError";
 import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
-import { IUsersRespository } from "@modules/accounts/repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 
 @injectable()
-class CreateUserUseCase {
+export class CreateUserUseCase {
 
     constructor(
         @inject("UsersRepository")
-        private userRepository: IUsersRespository
+        private userRepository: IUsersRepository
     ){}
 
     async execute({ name, email, password, driver_license }: ICreateUserDTO): Promise<void> {
@@ -32,5 +31,3 @@ class CreateUserUseCase {
     }
 
 }
-
-export { CreateUserUseCase }

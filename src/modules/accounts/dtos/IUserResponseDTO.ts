@@ -1,5 +1,5 @@
 
-interface IUserResponseDTO {
+export interface IUserResponseDTO {
 
     email: string;
     name: string; 
@@ -9,5 +9,3 @@ interface IUserResponseDTO {
     avatar_url(): string
 
 }
-
-export { IUserResponseDTO }

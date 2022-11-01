@@ -1,6 +1,6 @@
+import { inject, injectable } from "tsyringe";
 import { ICarsImages } from "@modules/cars/repositories/ICarsImages";
 import { IStorageProvider } from "@shared/container/providers/StorageProvider/IStorageProvider";
-import { inject, injectable } from "tsyringe";
 
 interface IRequest {
     car_id: string;
@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-class UploadCarImageUseCase {
+export class UploadCarImageUseCase {
 
     constructor(
         @inject("CarsImages")
@@ -26,5 +26,3 @@ class UploadCarImageUseCase {
     }
 
 }
-
-export { UploadCarImageUseCase }

@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
-import { v4 as uuidV4 } from "uuid";
 import { User } from "./User";
+import { v4 as uuidV4 } from "uuid";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
 @Entity("users_tokens")
-class UserTokens {
+export class UserTokens {
 
     @PrimaryColumn()
     id: string;
@@ -31,5 +31,3 @@ class UserTokens {
     }
 
 }
-
-export { UserTokens }

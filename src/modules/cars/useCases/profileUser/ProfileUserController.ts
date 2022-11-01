@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { Request, Response } from "express";
 import { ProfileUserUseCase } from "./ProfileUserUseCase";
 
-class ProfileUserController {
+export class ProfileUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.user;
         const profileUserUseCase = container.resolve(ProfileUserUseCase);
@@ -11,5 +11,3 @@ class ProfileUserController {
         return response.json(user);
     }
 }
-
-export { ProfileUserController }

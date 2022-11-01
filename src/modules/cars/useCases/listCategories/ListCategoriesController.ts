@@ -1,9 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { Request, Response } from "express";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
-
-class ListCategoriesController {
+export class ListCategoriesController {
 
     async handle(request: Request, response: Response): Promise<Response> {
 
@@ -14,5 +13,3 @@ class ListCategoriesController {
         return response.json(list);
     }
 }
-
-export { ListCategoriesController };

@@ -1,8 +1,7 @@
-
-import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 import { ICategories, ICreateCategoryDTO } from "../ICategories";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 
-class CategoriesRepositoryInMemory implements ICategories {
+export class CategoriesRepositoryInMemory implements ICategories {
 
     categories: Category[] = [];
 
@@ -28,5 +27,3 @@ class CategoriesRepositoryInMemory implements ICategories {
     }
 
 }
-
-export { CategoriesRepositoryInMemory }

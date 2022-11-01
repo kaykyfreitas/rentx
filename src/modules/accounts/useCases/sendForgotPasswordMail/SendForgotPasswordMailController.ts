@@ -1,9 +1,8 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { EmitFlags } from "typescript";
+import { Request, Response } from "express";
 import { SendForgotPasswordMailUseCase } from "./SendForgotPasswordMailUseCase";
 
-class SendForgotPasswordMailController {
+export class SendForgotPasswordMailController {
 
     async handle(request: Request, response: Response): Promise<Response> {
         const { email } = request.body;
@@ -16,5 +15,3 @@ class SendForgotPasswordMailController {
     }
 
 }
-
-export { SendForgotPasswordMailController }

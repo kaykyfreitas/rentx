@@ -1,5 +1,5 @@
 
-interface IDateProvider {
+export interface IDateProvider {
 
     compareInHours(start_date: Date, end_date: Date): number;
 
@@ -16,5 +16,3 @@ interface IDateProvider {
     compareIfBefore(start_date: Date, end_date: Date): boolean;
 
 }
-
-export { IDateProvider }

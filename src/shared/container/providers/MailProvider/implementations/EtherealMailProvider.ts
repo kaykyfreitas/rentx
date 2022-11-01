@@ -1,11 +1,11 @@
+import fs from "fs";
+import handlebars from "handlebars";
 import { injectable } from "tsyringe";
 import { IMailProvider } from "../IMailProvider";
 import nodemailer, { Transporter } from "nodemailer";
-import handlebars from "handlebars";
-import fs from "fs";
 
 @injectable()
-class EtherealMailProvider implements IMailProvider {
+export class EtherealMailProvider implements IMailProvider {
 
     private client: Transporter;
 
@@ -44,5 +44,3 @@ class EtherealMailProvider implements IMailProvider {
     }
 
 }
-
-export { EtherealMailProvider }

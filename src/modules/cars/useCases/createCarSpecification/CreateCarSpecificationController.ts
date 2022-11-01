@@ -1,11 +1,9 @@
-import { specificationsRoutes } from "@shared/infra/http/routes/specifications.routes";
-import { Request, response, Response } from "express";
 import { container } from "tsyringe";
-import { idText } from "typescript";
+import { Request, response, Response } from "express";
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
 
-class CreateCarSpecificationController {
-    async handle( request: Request, reponse: Response): Promise<Response> {
+export class CreateCarSpecificationController {
+    async handle( request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
         const { specifications_id } = request.body;
 
@@ -20,5 +18,3 @@ class CreateCarSpecificationController {
     }
 
 }
-
-export { CreateCarSpecificationController }

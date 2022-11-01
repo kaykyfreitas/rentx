@@ -1,9 +1,9 @@
+import { v4 as uuidV4 } from "uuid";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
-import { v4 as uuidV4 } from "uuid";
 
 @Entity("rentals")
-class Rental {
+export class Rental {
 
     @PrimaryColumn()
     id: string;
@@ -43,5 +43,3 @@ class Rental {
     }
 
 }
-
-export { Rental }

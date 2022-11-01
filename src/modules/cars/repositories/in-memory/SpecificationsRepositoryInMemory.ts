@@ -1,7 +1,8 @@
-import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 import { ICreateSpecificationDTO, ISpecifications } from "../ISpecifications";
+import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 
-class SpecificationsRepositoryInMemory implements ISpecifications {
+export class SpecificationsRepositoryInMemory implements ISpecifications {
+
     specifications: Specification[] = [];
 
     async findByName(name: string): Promise<Specification> {
@@ -22,5 +23,3 @@ class SpecificationsRepositoryInMemory implements ISpecifications {
     }
     
 }
-
-export { SpecificationsRepositoryInMemory }
