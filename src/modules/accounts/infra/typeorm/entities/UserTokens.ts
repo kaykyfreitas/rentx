@@ -1,33 +1,39 @@
-import { User } from "./User";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+
+import { User } from "./User";
 
 @Entity("users_tokens")
 export class UserTokens {
+  @PrimaryColumn()
+  id: string;
 
-    @PrimaryColumn()
-    id: string;
+  @Column()
+  refresh_token: string;
 
-    @Column()
-    refresh_token: string;
+  @Column()
+  user_id: string;
 
-    @Column()
-    user_id: string;
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user: User;
 
-    @ManyToOne(() => User)
-    @JoinColumn({ name: "user_id" })
-    user: User;
+  @Column()
+  expires_date: Date;
 
-    @Column()
-    expires_date: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    @CreateDateColumn()
-    created_at: Date;
-
-    constructor() {
-        if(!this.id) {
-            this.id = uuidV4();
-        }
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
     }
-
+  }
 }

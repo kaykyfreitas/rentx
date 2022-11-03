@@ -2,27 +2,28 @@ import { Router } from "express";
 import multer from "multer";
 
 import uploadConfig from "@config/upload";
-
 import { CreateUserController } from "@modules/accounts/useCases/createUser/CreateUserController";
 import { UpdateUserAvatarController } from "@modules/accounts/useCases/updateUserAvatar/updateUserAvatarController";
-import { ensureAuthenticated } from "@shared/infra/http/middleware/ensureAuthenticated";
 import { ProfileUserController } from "@modules/cars/useCases/profileUser/ProfileUserController";
+import { ensureAuthenticated } from "@shared/infra/http/middleware/ensureAuthenticated";
 
 const usersRoutes = Router();
 
 const uploadAvatar = multer(uploadConfig);
 
-const createUserController = new CreateUserController();
+usersRoutes.post("/", new CreateUserController().handle);
 
-const updateUserAvatarController = new UpdateUserAvatarController();
+usersRoutes.patch(
+  "/avatar",
+  ensureAuthenticated,
+  uploadAvatar.single("avatar"),
+  new UpdateUserAvatarController().handle
+);
 
-const profileUserController = new ProfileUserController();
+usersRoutes.get(
+  "/profile",
+  ensureAuthenticated,
+  new ProfileUserController().handle
+);
 
-
-usersRoutes.post("/", createUserController.handle);
-
-usersRoutes.patch("/avatar", ensureAuthenticated, uploadAvatar.single("avatar"), updateUserAvatarController.handle);
-
-usersRoutes.get("/profile", ensureAuthenticated, profileUserController.handle);
-
-export { usersRoutes }
+export { usersRoutes };

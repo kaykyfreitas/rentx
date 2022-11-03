@@ -1,8 +1,10 @@
+import { S3 } from "aws-sdk";
 import fs from "fs";
 import mime from "mime";
-import { S3 } from "aws-sdk";
 import { resolve } from "path";
+
 import upload from "@config/upload";
+
 import { IStorageProvider } from "../IStorageProvider";
 
 export class S3StorageProvider implements IStorageProvider {
@@ -18,7 +20,7 @@ export class S3StorageProvider implements IStorageProvider {
     const originalName = resolve(upload.tmpFolder, file);
 
     const fileContent = await fs.promises.readFile(originalName);
-    
+
     const ContentType = mime.getType(originalName);
 
     await this.client

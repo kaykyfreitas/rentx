@@ -1,12 +1,13 @@
 import { Router } from "express";
 
-import { usersRoutes } from "@shared/infra/http/routes/users.routes";
+import { authenticateRoutes } from "@shared/infra/http/routes/authenticate.routes";
 import { categoriesRoutes } from "@shared/infra/http/routes/categories.routes";
 import { specificationsRoutes } from "@shared/infra/http/routes/specifications.routes";
-import { authenticateRoutes } from "@shared/infra/http/routes/authenticate.routes";
+import { usersRoutes } from "@shared/infra/http/routes/users.routes";
+
 import { carsRoutes } from "./cars.routes";
-import { rentalRoutes } from "./rental.routes";
 import { passwordRoutes } from "./password.routes";
+import { rentalRoutes } from "./rental.routes";
 
 const router = Router();
 
