@@ -1,4 +1,4 @@
-import { container } from "tsyringe";
+import { container } from "tsyringe"; 
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { ICategories } from "@modules/cars/repositories/ICategories";
 import { ISpecifications } from "@modules/cars/repositories/ISpecifications";
