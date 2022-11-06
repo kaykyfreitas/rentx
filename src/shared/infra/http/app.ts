@@ -10,12 +10,15 @@ import swaggerUI from "swagger-ui-express";
 
 import upload from "@config/upload";
 import { AppError } from "@shared/errors/AppError";
+import rateLimiter from "@shared/infra/http/middleware/rateLimiter";
 import { router } from "@shared/infra/http/routes";
 
 import swaggerFile from "../../../swagger.json";
 import createConnection from "../typeorm";
 
 const app = express();
+
+app.use(rateLimiter);
 
 createConnection().then(() => console.log("connected to database"));
 
