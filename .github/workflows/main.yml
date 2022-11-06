@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
-          scipt: |
+          script: |
             cd ~/app/rentx
             yarn 
             ./node_modules/.bin/typeorm migration:run
