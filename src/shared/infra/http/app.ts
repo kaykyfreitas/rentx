@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import "dotenv/config";
+import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
-
 import "express-async-errors";
 // import '../typeorm'
 import "@shared/container";
@@ -27,6 +27,7 @@ app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`));
 
 app.use("/cars", express.static(`${upload.tmpFolder}/cars`));
 
+app.use(cors());
 app.use(router);
 
 app.use(
